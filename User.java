@@ -1,5 +1,5 @@
 
-public class User implements UserActions {
+public abstract class User implements UserActions {
 	// Account Information Requirement
 private int id;
 private String Firstname;

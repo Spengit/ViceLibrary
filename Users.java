@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Users {
-public static ArrayList<User> users;
+private static ArrayList<User> users;
 
 public static void addUser(User u) {
 	if (users == null) {
@@ -10,8 +10,9 @@ public static void addUser(User u) {
 	users.add(u);
 }
 public static void printUsers() {
-	for(int i = 0; i < users.size(); i++) {
+	for(int i = 1; i < users.size(); i++) {
 		System.out.println(users.get(i).toString());
+		System.out.println();
 	}
 }
 }

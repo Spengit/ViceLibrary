@@ -10,14 +10,17 @@ public class AccountCreater {
 	static Random r = new Random();
 	public static String makeString(String s) {
 		StringBuilder ab = new StringBuilder();
-		for(int i = 0; i < 10; ++i) {
+		for(int i = 0; i < 5; ++i) {
 			ab.append(Alphabet.charAt(r.nextInt(s.length())));
 		}
 		return ab.toString();
 	}
 	public static void fill(int param) {
 		for (int i = 0; i < param; ++i) {
-			Users.addUser(new User(makeString(Alphabet),makeString(Alphabet),
+			if(i%2 == 0)
+			Users.addUser(new Teacher(makeString(Alphabet),makeString(Alphabet),
+					makeString(Alphabet),makeString(Alphabet),makeString(Alphabet)));
+			Users.addUser(new PersonalUser(makeString(Alphabet),makeString(Alphabet),
 					makeString(Alphabet),makeString(Alphabet),makeString(Alphabet)));
 		}
 	}
@@ -29,7 +32,7 @@ public class AccountCreater {
 		// TODO Auto-generated method stub
 		System.out.println("Creating accounts test: ");
 		fill(10);
-		System.out.println("Your users are: ");
+		System.out.println("Your users are: \n");
 		printUsers();
 		
 

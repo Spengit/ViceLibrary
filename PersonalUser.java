@@ -11,5 +11,9 @@ public class PersonalUser extends User implements UserPermissions{
 		// TODO Auto-generated method stub
 		return 10;
 	}
+	
+	public String toString() {
+		return super.toString() + "\n Account Type: Personal";
+	}
 
 }

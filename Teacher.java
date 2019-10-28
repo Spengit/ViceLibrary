@@ -11,5 +11,9 @@ public class Teacher extends User implements UserPermissions{
 		// TODO Auto-generated method stub
 		return 50;
 	}
+	
+	public String toString() {
+		return super.toString() + "\nAccount Type: Teacher ";
+	}
 
 }
