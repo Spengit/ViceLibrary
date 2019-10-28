@@ -15,4 +15,21 @@ public static void printUsers() {
 		System.out.println();
 	}
 }
+
+public static void removeUser(String name) {
+
+	for(int i = 0; i < users.size(); ++i) {
+		if (users.get(i).getFirstName() == name) {
+			users.remove(i);
+		}
+		else {
+			System.out.println("User not found ");
+		}
+	}
+}
+
+public static void removeUser(int index) {
+
+	users.remove(index);
+}
 }
