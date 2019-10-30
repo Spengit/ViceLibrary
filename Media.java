@@ -6,7 +6,7 @@ import java.util.List;
  * Other media types can add additional attributes as needed.
  * 
  * @author Matt Kemp
- * @version 1.0
+ * @version 1.1
  */
 public abstract class Media {
 	private long ID;
@@ -33,5 +33,17 @@ public abstract class Media {
 	}
 	public long getId() {
 		return this.ID;
+	}
+	public String getTitle() {
+		return this.title;
+	}
+	public String getPubYear() { 
+		return this.pubYear;
+	}
+	public double getPrice() {
+		return this.price;
+	}
+	public String getCondition() {
+		return this.condition;
 	}
 }
