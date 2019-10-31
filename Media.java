@@ -14,8 +14,9 @@ public abstract class Media {
 	private String pubYear;
 	private double price;
 	private String condition;
-  private boolean isCheckedOut;
-  private HashMap<
+	private boolean isCheckedOut;
+	//private int numCopies;
+	//private static HashMap<String, Integer> ratings = new HashMap<String, Integer>();
 	
 	public Media(String title, String pubYear, double price, String condition,
 			List<Media> allMedia) {
