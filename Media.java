@@ -14,6 +14,8 @@ public abstract class Media {
 	private String pubYear;
 	private double price;
 	private String condition;
+  private boolean isCheckedOut;
+  private HashMap<
 	
 	public Media(String title, String pubYear, double price, String condition,
 			List<Media> allMedia) {
@@ -46,4 +48,7 @@ public abstract class Media {
 	public String getCondition() {
 		return this.condition;
 	}
+  private boolean isNewRelease() {
+    //TODO determine new release
+  }
 }
