@@ -1,8 +1,10 @@
 
 public class Child extends User implements UserPermissions{
+	
 
-	public Child(String name, String lastName, String address, String email, String phoneNumber) {
-		super(name, lastName, address, email, phoneNumber);
+	public Child(String name, String lastName, String address, 
+			String email, String phoneNumber, double fines) {
+		super(name, lastName, address, email, phoneNumber, fines);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -1,8 +1,9 @@
 
 public class Teacher extends User implements UserPermissions{
 
-	public Teacher(String name, String lastName, String address, String email, String phoneNumber) {
-		super(name, lastName, address, email, phoneNumber);
+	public Teacher(String name, String lastName,
+			String address, String email, String phoneNumber, double fines) {
+		super(name, lastName, address, email, phoneNumber, fines);
 		// TODO Auto-generated constructor stub
 	}
 

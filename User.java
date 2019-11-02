@@ -4,10 +4,11 @@ public abstract class User implements UserActions {
 private int id;
 private String Firstname;
 private String lastName;
-public String getName() {
+private double fines;
+public String getFirstName() {
 	return Firstname;
 }
-public void setName(String name) {
+public void setFirstName(String name) {
 	this.Firstname = name;
 }
 public String getAddress() {
@@ -31,12 +32,14 @@ public void setPhoneNumber(String phoneNumber) {
 private String address;
 private String email;
 private String phoneNumber;
-	public User(String name, String lastName,String address, String email, String phoneNumber) {
+	public User(String name, String lastName,String address,
+			String email, String phoneNumber, double fines) {
 		this.Firstname = name;
 		this.setLastName(lastName);
 		this.address = address;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.setFines(fines);
 	}
 	public int getId() {
 		return this.id;
@@ -72,6 +75,12 @@ private String phoneNumber;
 	}
 	public String toString() {
 		return "First Name: " + this.Firstname + " Last Name: " + this.lastName;
+	}
+	public double getFines() {
+		return fines;
+	}
+	public void setFines(double fines) {
+		this.fines = fines;
 	}
 	
 }
