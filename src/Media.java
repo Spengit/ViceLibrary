@@ -1,4 +1,5 @@
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,37 +10,45 @@ import java.util.Map;
  * Other media types can add additional attributes as needed.
  * 
  * @author Matt Kemp
- * @version 1.2
+ * @version 1.3
  */
 public abstract class Media {
+  private String type;
   private long ID;
   private String title;
   private String pubYear;
   private double price;
   private String condition;
-  private boolean isCheckedOut;
+  private boolean isNewRelease;
   private int numCopies;
+  private int numAvailable;
   private HashMap<String, Double> ratings;
+  private ArrayList<String> waitList;
 	
-  public Media(String title, String pubYear, double price, String condition,
-      List<Media> allMedia) {
+  public Media(String type, String title, String pubYear, double price, String condition,
+      boolean isNewRelease, List<Media> allMedia) {
         /**
 		 * Check if this title already exists, if it does do not create a new instance,
 		 * just iterate number of copies
 		 */
 		for (Media m : allMedia) {
-			if (m.getTitle().equals(title)) {
+			if (m.getTitle().equals(title) && m.getType().equals(type)) {
 				m.addCopy();
+				m.checkinMedia(); //increase # available
 				return;
 			}
 		}
 		this.numCopies = 1;
+		this.numAvailable = 1;
+		this.type = type;
 		this.title= title;
 		this.pubYear = pubYear;
 		this.price = price;
 		this.condition = condition;
+		this.isNewRelease = isNewRelease;
 		this.ratings = new HashMap<String, Double>();
-		/*
+		this.waitList = new ArrayList<String>();
+		/**
 		 * check if this is the first item to be added to the list
 		 * if not, set to next available ID
 		 */
@@ -50,6 +59,9 @@ public abstract class Media {
 		}
 		allMedia.add(this);
 	}
+    public String getType() {
+      return this.type;
+    }
 	public long getId() {
 		return this.ID;
 	}
@@ -65,15 +77,42 @@ public abstract class Media {
 	public String getCondition() {
 		return this.condition;
 	}
-	private boolean isNewRelease() {
-		//TODO determine new release
-		return true;
+	public boolean isNewRelease() {
+	  return this.isNewRelease;
 	}
 	public int getNumCopies() {
 		return this.numCopies;
 	}
+	public int getNumAvailable() {
+	  return this.numAvailable;
+	}
+	public boolean checkoutMedia() {
+	  if (this.numAvailable == 0)
+	    return false;
+	  this.numAvailable -= 1;
+	  return true;
+	}
+	public void checkinMedia() {
+	  this.numAvailable += 1;
+	}
 	public void addCopy() {
 		this.numCopies += 1;
+	}
+	public void setNewRelease(boolean isNewRelease) {
+	  this.isNewRelease = isNewRelease;
+	}
+	public int waitListSize() {
+	  return this.waitList.size();
+	}
+	public boolean addToWaitList(String username) {
+	  //Check that user is not already on the wait list
+	  for (String s : this.waitList) {
+	    if (s.equals(username))
+	      return false;
+	  }
+	  //Add user to wait list
+	  this.waitList.add(username);
+	  return true;
 	}
 	/**
 	 * Adds (or adjusts) a rating for this title. Keeps only the most recent
