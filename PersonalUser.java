@@ -17,4 +17,10 @@ public class PersonalUser extends User implements UserPermissions{
 		return super.toString() + "\n Account Type: Personal";
 	}
 
+	@Override
+	public void rateMedia() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

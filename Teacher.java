@@ -17,4 +17,10 @@ public class Teacher extends User implements UserPermissions{
 		return super.toString() + "\nAccount Type: Teacher ";
 	}
 
+	@Override
+	public void rateMedia() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
