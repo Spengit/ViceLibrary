@@ -8,6 +8,7 @@ public static void addUser(User u) {
 		users.add(u);
 	}
 	users.add(u);
+	u.setId(users.size());
 }
 public static void printUsers() {
 	for(int i = 1; i < users.size(); i++) {

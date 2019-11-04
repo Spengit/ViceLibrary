@@ -1,10 +1,14 @@
+import java.util.ArrayList;
 
+import javax.print.attribute.standard.Media;
 public abstract class User implements UserActions {
 	// Account Information Requirement
 private int id;
 private String Firstname;
 private String lastName;
 private double fines;
+private ArrayList<Media>checkouts;
+private boolean checkout;
 public String getFirstName() {
 	return Firstname;
 }
@@ -47,10 +51,9 @@ private String phoneNumber;
 	public void setId(int id) {
 		this.id = id;
 	}
-	@Override
-	public void checkout() {
+	public void checkout(Media m) {
 		// TODO Auto-generated method stub
-		
+		checkouts.add(m);
 	}
 	@Override
 	public void returnMedia() {

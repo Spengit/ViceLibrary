@@ -18,9 +18,11 @@ public class Teacher extends User implements UserPermissions{
 	}
 
 	@Override
-	public void rateMedia() {
+	public void checkout() {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

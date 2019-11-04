@@ -47,4 +47,10 @@ public class Librarian extends User implements AdminPermissions{
 		
 	}
 
+	@Override
+	public void checkout() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -1,6 +1,5 @@
 
 public class Child extends User implements UserPermissions{
-	
 
 	public Child(String name, String lastName, String address, 
 			String email, String phoneNumber, double fines) {
@@ -15,10 +14,13 @@ public class Child extends User implements UserPermissions{
 		return 3;
 	}
 
+
 	@Override
-	public void rateMedia() {
+	public void checkout() {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

@@ -36,6 +36,7 @@ public class UserLoader {
 					Users.addUser(new Teacher(firstName, lastName, 
 							phoneNumber, address,email, Double.valueOf(fines)));
 				}
+		        
 				}
 		} catch (Exception e){
 			e.printStackTrace();
