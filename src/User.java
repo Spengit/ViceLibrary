@@ -7,8 +7,6 @@ private int id;
 private String Firstname;
 private String lastName;
 private double fines;
-private ArrayList<Media>checkouts;
-private boolean checkout;
 public String getFirstName() {
 	return Firstname;
 }
@@ -36,6 +34,7 @@ public void setPhoneNumber(String phoneNumber) {
 private String address;
 private String email;
 private String phoneNumber;
+protected boolean isFlagged;
 	public User(String name, String lastName,String address,
 			String email, String phoneNumber, double fines) {
 		this.Firstname = name;
@@ -44,6 +43,8 @@ private String phoneNumber;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.setFines(fines);
+		this.isFlagged = false;
+		
 	}
 	public int getId() {
 		return this.id;
@@ -53,21 +54,31 @@ private String phoneNumber;
 	}
 	public void checkout(Media m) {
 		// TODO Auto-generated method stub
-		checkouts.add(m);
+		
+
 	}
 	@Override
 	public void returnMedia() {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void payFine() {
+	public double payFine(double fine) {
 		// TODO Auto-generated method stub
-		
+		//going to assume that the user has the option to pay a partial fine
+		double newBal = this.getFines() - fine;
+		if(this.getFines() - fine < 0) {
+			double change  = newBal*-1;
+			this.setFines(0);
+			return change;
+			
+	
+		}
+		this.setFines(this.getFines() - fines);
+		return 0.0;
 	}
 	@Override
 	public void deleteAccount() {
-		// TODO Auto-generated method stub
+		Users.removeUser(this.getFirstName());
 		
 	}
 	public String getLastName() {
@@ -85,5 +96,8 @@ private String phoneNumber;
 	public void setFines(double fines) {
 		this.fines = fines;
 	}
-	
+	public void rateMedia(Media m) {
+		// TODO Auto-generated method stub
+		
+	}
 }

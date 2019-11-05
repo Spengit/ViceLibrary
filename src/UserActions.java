@@ -2,6 +2,6 @@
 public interface UserActions {
 public void checkout();
 public void returnMedia();
-public void payFine();
+public double payFine(double fine);
 public void deleteAccount();
 }

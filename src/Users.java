@@ -33,4 +33,15 @@ public static void removeUser(int index) {
 
 	users.remove(index);
 }
+
+public static User findUser(User u) {
+	for(int i = 0; i < users.size(); ++i) {
+		if(users.get(i) == u) {
+			return users.get(i);
+		}
+	}
+	return null;
+
+}
+
 }

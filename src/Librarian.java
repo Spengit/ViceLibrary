@@ -6,25 +6,26 @@ public class Librarian extends User implements AdminPermissions{
 		super(name, lastName, address, email, phoneNumber, fines);
 		
 	}
+	private static final int MAX_CHECKOUT = 10;
 	
 	public String toString() {
 		return super.toString() + "Account type : Libaraian";
 	}
 
 	@Override
-	public void flagUser() {
+	public void flagUser(User u) {
+		u.isFlagged = true;
+		
+	}
+
+	@Override
+	public void addFine(User u) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void addFine() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void checkoutBook() {
+	public void checkoutMedia(Media m) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -32,17 +33,17 @@ public class Librarian extends User implements AdminPermissions{
 	@Override
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub
-		return 3;
+		return MAX_CHECKOUT;
 	}
 
 	@Override
-	public void addBook() {
+	public void addMedia(Media m) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void removeBook() {
+	public void removeMedia(Media m) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -51,6 +52,10 @@ public class Librarian extends User implements AdminPermissions{
 	public void checkout() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public double payFine (double fine) {
+		 return super.payFine(fine);
 	}
 
 }

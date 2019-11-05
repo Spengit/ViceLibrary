@@ -6,12 +6,12 @@ public class Child extends User implements UserPermissions{
 		super(name, lastName, address, email, phoneNumber, fines);
 		// TODO Auto-generated constructor stub
 	}
-	
+	private static final int MAX_CHECKOUT = 3;
 
 	@Override
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub
-		return 3;
+		return MAX_CHECKOUT;
 	}
 
 
@@ -19,6 +19,17 @@ public class Child extends User implements UserPermissions{
 	public void checkout() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void rateMedia(Media m) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public double payFine(double fine) {
+		return super.payFine(fine);
 	}
 
 
