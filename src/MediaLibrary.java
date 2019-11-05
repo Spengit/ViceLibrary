@@ -42,14 +42,13 @@ public class MediaLibrary {
 		}
 	}
 
-	public static void removeUser(String name) {
+	public static void removeCopy(String type, String name) {
 
-		for(int i = 0; i < users.size(); ++i) {
-			if (users.get(i).getFirstName() == name) {
-				users.remove(i);
-			}
-			else {
-				System.out.println("User not found ");
+		for (Media m : mediaLibrary) {
+			if (m.getTitle().equals(title) && m.getType().equals(type)) {
+				m.addCopy();
+				m.checkinMedia(); //increase # available
+				return true;
 			}
 		}
 	}

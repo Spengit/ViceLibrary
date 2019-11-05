@@ -10,7 +10,7 @@ import java.util.Map;
  * Other media types can add additional attributes as needed.
  * 
  * @author Matt Kemp
- * @version 1.3
+ * @version 1.4
  */
 public abstract class Media {
   private String type;

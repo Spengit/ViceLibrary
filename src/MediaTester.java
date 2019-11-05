@@ -26,7 +26,6 @@ public class MediaTester {
       else
     	  System.out.println("No copies available. There are " + m.waitListSize() + " people on the "
     	  		+ "wait list. Join wait list?");
-      System.out.println(m.getNumAvailable() + " copies available");
       if (m.addToWaitList("Matt"))
         System.out.println("Added Matt to wait list for " + m.getTitle() + ".");
       else
