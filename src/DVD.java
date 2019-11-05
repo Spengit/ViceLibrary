@@ -31,7 +31,7 @@ public class DVD extends Media
 	  private String genre; //exclusive to Book and DVD
 	  
 	  public DVD(String type, String title, String pubYear, double price, String condition,
-      boolean isNewRelease)
+      boolean isNewRelease, String director, String contains, String actors, String studio, String genre)
 	  {
 		  super(type, title, pubYear, price, condition, isNewRelease);
 		  this.director=director;
