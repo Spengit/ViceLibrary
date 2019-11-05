@@ -20,13 +20,14 @@ public abstract class Media {
   private double price;
   private String condition;
   private boolean isNewRelease;
+  private String genre;
   private int numCopies;
   private int numAvailable;
   private HashMap<String, Double> ratings;
   private ArrayList<String> waitList;
 	
   public Media(String type, String title, String pubYear, double price, String condition,
-      boolean isNewRelease) {
+      boolean isNewRelease, String genre) {
 
 		this.numCopies = 1;
 		this.numAvailable = 1;
@@ -36,6 +37,7 @@ public abstract class Media {
 		this.price = price;
 		this.condition = condition;
 		this.isNewRelease = isNewRelease;
+		this.genre = genre;
 		this.ratings = new HashMap<String, Double>();
 		this.waitList = new ArrayList<String>();
 	}
@@ -125,5 +127,11 @@ public abstract class Media {
 	  }
 	  DecimalFormat df = new DecimalFormat("0.0");
 	  String result = df.format(total / this.ratings.size());
-	  return Double.parseDouble(result);	}
+	  return Double.parseDouble(result);
+	}
+	public String toString() {
+		String s = "";
+		s += this.getTitle() + " (" + this.getType() + "):" + this.getNumCopies() + " copies";
+		return s;
+	}
 }
