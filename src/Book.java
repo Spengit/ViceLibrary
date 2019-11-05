@@ -10,6 +10,7 @@ public class Book extends Media
 	 * Contains Author, ISBN #, and Publisher variables.
 	 * Edited by Jay-Rads Villanueva
 	 * Ver 1.0
+	 * Based on Media ver. 1.4
 	 */
 	private String type;
 	  private long ID;
