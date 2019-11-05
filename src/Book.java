@@ -27,6 +27,7 @@ public class Book extends Media
 	  private String author;
 	  private String isbn;
 	  private String publisher;
+	  private String genre; //exclusive to Book and DVD
 
 	  public Book(String type, String title, String pubYear, double price, String condition,
       boolean isNewRelease, String author, String isbn, String publisher)
@@ -134,5 +135,9 @@ public class Book extends Media
 		public String getPublisher()
 		{
 			return this.publisher;
+		}
+		public String getGenre()
+		{
+			return this.genre;
 		}
 }
