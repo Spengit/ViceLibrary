@@ -26,18 +26,8 @@ public abstract class Media {
   private ArrayList<String> waitList;
 	
   public Media(String type, String title, String pubYear, double price, String condition,
-      boolean isNewRelease, List<Media> allMedia) {
-        /**
-		 * Check if this title already exists, if it does do not create a new instance,
-		 * just iterate number of copies
-		 */
-		for (Media m : allMedia) {
-			if (m.getTitle().equals(title) && m.getType().equals(type)) {
-				m.addCopy();
-				m.checkinMedia(); //increase # available
-				return;
-			}
-		}
+      boolean isNewRelease) {
+
 		this.numCopies = 1;
 		this.numAvailable = 1;
 		this.type = type;
@@ -48,22 +38,15 @@ public abstract class Media {
 		this.isNewRelease = isNewRelease;
 		this.ratings = new HashMap<String, Double>();
 		this.waitList = new ArrayList<String>();
-		/**
-		 * check if this is the first item to be added to the list
-		 * if not, set to next available ID
-		 */
-		if(allMedia.isEmpty()) {
-			this.ID = 1;
-		} else {
-			this.ID = allMedia.get(allMedia.size() - 1).getId() + 1;
-		}
-		allMedia.add(this);
 	}
     public String getType() {
       return this.type;
     }
 	public long getId() {
 		return this.ID;
+	}
+	public void setId(long id) {
+		this.ID = id;
 	}
 	public String getTitle() {
 		return this.title;
