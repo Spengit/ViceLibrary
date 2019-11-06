@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * Singleton class which holds the library's media library
  * 
  * @author Matt Kemp
- * @version 1.0
+ * @version 1.1
  */
 public class MediaLibrary {
 	private static MediaLibrary ml;
@@ -75,5 +75,17 @@ public class MediaLibrary {
 			}
 		}
 		return false;
+	}
+	
+	public ArrayList<Media> searchMedia(String search) {
+	  ArrayList<Media> results = new ArrayList<Media>();
+	  if (search.equals(""))
+          return results;
+	  String searchUpper = search.toUpperCase();
+	  for (Media m : mediaLibrary) {
+	    if (m.search(searchUpper))
+	      results.add(m);
+	  }
+	  return results;
 	}
 }

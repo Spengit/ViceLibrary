@@ -30,7 +30,13 @@ public class MediaTester {
     	System.out.println("New book added.");
     }
     ml.printMedia();
-      
+    
+    String search = "sci-fi";    
+    System.out.println("Search Results for " + search + ":");
+    ArrayList<Media> searchResults = ml.searchMedia(search);
+    for (int i = 0; i < searchResults.size(); i++) {
+      System.out.println(i+1 + ") " + searchResults.get(i).toString());
+    }
     
   }
   

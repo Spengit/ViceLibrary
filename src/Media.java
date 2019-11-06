@@ -10,7 +10,7 @@ import java.util.Map;
  * Other media types can add additional attributes as needed.
  * 
  * @author Matt Kemp
- * @version 1.4
+ * @version 1.5
  */
 public abstract class Media {
   private String type;
@@ -131,7 +131,23 @@ public abstract class Media {
 	}
 	public String toString() {
 		String s = "";
-		s += this.getTitle() + " (" + this.getType() + "):" + this.getNumCopies() + " copies";
+		s += this.getTitle() + " (" + this.getType() + "):" + this.getNumAvailable() +
+		    " copies available  Rating: " + this.getRating();
 		return s;
+	}
+	/**
+	 * Check attributes of this instance against a specified search parameter
+	 * @param search String to compare this instance's attributes
+	 * @return true if the search parameter matches title, publication year, or genre
+	 *         false otherwise
+	 */
+	public boolean search(String search) {
+	  String searchUpper = search.toUpperCase();
+	  if (this.title.toUpperCase().contains(searchUpper) ||
+	      this.pubYear.contains(searchUpper) ||
+	      this.genre.toUpperCase().contains(searchUpper)) {
+	    return true;
+	  }
+	  return false;
 	}
 }
