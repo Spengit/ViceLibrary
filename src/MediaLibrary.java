@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * Singleton class which holds the library's media library
  * 
  * @author Matt Kemp
- * @version 1.1
+ * @version 1.4
  */
 public class MediaLibrary {
 	private static MediaLibrary ml;

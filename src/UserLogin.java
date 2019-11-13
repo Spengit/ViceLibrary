@@ -11,6 +11,7 @@ public class UserLogin {
 	public static User curr;
 	public void login(int a) {
 		UserLoader.loadUsers();
+		MediaLoader.loadMedia();
 		switch(a) {
 			case 1:	a = 1;
 					print("Enter Username:");
@@ -107,7 +108,6 @@ public class UserLogin {
 		case "a" :
 			print("What would you like to checkout?");
 			String check = read.nextLine();
-			MediaLoader.loadMedia();
 			ArrayList<Media> mediaSearch = m.searchMedia(check);
 			print("What would you like to check out? ");
 			for(int i = 0; i < mediaSearch.size(); ++i) {
