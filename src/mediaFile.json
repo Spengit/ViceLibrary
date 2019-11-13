@@ -1,0 +1,17 @@
+{"media":[
+  {
+    "id":1,
+  	"type":"book",
+    "title":"The Cat In the Hat",
+    "pubYear":"1975",
+    "price":5.95,
+    "condition":"Good",
+    "isNewRelease":false,
+    "genre":"Children's",
+    "numCopies":2,
+    "numAvailable":1,
+    "ratingUsers":["Jim","Bob"],
+    "ratings":[5,5],
+    "waitlist":[]
+  }
+]}

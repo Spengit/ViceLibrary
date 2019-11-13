@@ -54,8 +54,6 @@ protected boolean isFlagged;
 	}
 	public void checkout(Media m) {
 		// TODO Auto-generated method stub
-		
-
 	}
 	@Override
 	public void returnMedia() {
