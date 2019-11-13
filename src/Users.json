@@ -8,7 +8,9 @@
     "phone":"803-565-4433",
     "accountId":1,
     "type":"L",
-    "fines": 0
+    "fines": 0,
+    "username":"rwhite",
+    "password":"password"
   },{
   	"id":2,
   	"firstName":"Amy",
@@ -18,7 +20,9 @@
     "phone":"803-242-4427",
     "accountId":2,
     "type":"L",
-    "fines": 3.4
+    "fines": 3.4,
+    "username":"asmith",
+    "password":"password"
   },{
   	"id":3,
   	"firstName":"Jim",
@@ -28,7 +32,9 @@
     "phone":"803-555-4545",
     "accountId":3,
     "type":"P",
-    "fines":7.2
+    "fines":7.2,
+    "username":"jhudson",
+    "password":"password"
   },{
   	"id":4,
   	"firstName":"Bryan",
@@ -38,7 +44,9 @@
     "phone":"803-232-7788",
     "accountId":4,
     "type":"P",
-    "fines":0
+    "fines":0,
+    "username":"bwilson",
+    "password":"password"
   },{
   	"id":5,
   	"firstName":"Jed",
@@ -48,6 +56,8 @@
     "phone":"803-945-3388",
     "accountId":4,
     "type":"P",
-    "fines":0
-  }
+    "fines":0,
+    "username":"jwilson",
+    "password":"password"
+  } 
 ]}
