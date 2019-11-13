@@ -28,6 +28,9 @@ public static void removeUser(String name) {
 		}
 	}
 }
+public static User getUser(int index) {
+	return users.get(index);
+}
 
 public static void removeUser(int index) {
 

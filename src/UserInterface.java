@@ -5,9 +5,11 @@
 import java.util.Scanner;
 public class UserInterface {
 	public static void main(String[] args) {
-		start();
 		UserLoader.loadUsers();
-		//User Senario1 = Users.findUser(userName)
+		 User test = Users.getUser(1);
+		 test.setUserName("Test");
+		 test.setPassword("Test");
+		 start();
 	}
 	public static void print(String s) {
 		System.out.println(s);

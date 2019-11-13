@@ -7,6 +7,7 @@ public class Child extends User {
 		// TODO Auto-generated constructor stub
 	}
 	private static final int MAX_CHECKOUT = 3;
+	private String type;
 
 
 	public int checkoutLimit() {
@@ -31,6 +32,16 @@ public class Child extends User {
 	
 	public double payFine(double fine) {
 		return super.payFine(fine);
+	}
+
+
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType() {
+		this.type = "C";
 	}
 
 

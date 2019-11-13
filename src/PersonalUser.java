@@ -8,9 +8,18 @@ public class PersonalUser extends User {
 	}
 	private static final int MAX_CHECKOUT = 10;
 	private static int checkoutCount;
+	private String type;
 
 
 
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType() {
+		this.type = "P";
+	}
 
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub

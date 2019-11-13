@@ -57,6 +57,7 @@ private String address;
 private String email;
 private String phoneNumber;
 protected boolean isFlagged;
+private String type;
 	public User(String name, String lastName,String address,
 			String email, String phoneNumber, double fines) {
 		this.Firstname = name;
@@ -122,5 +123,8 @@ protected boolean isFlagged;
 	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub
 		m.rateMedia(this.getUserName(), rating);
+	}
+	public String getType() {
+		return type;
 	}
 }

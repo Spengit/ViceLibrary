@@ -99,6 +99,11 @@ public class UserLogin {
 				+ "\nb: pay a fine"
 				+ "\nc: return an item"
 				+ "\nd: Log Out");
+		if(curr.getType().equalsIgnoreCase("L")) {
+			print("\ne Add an item"
+					+ "\nf Remove an item"
+					+ "\ng Flag a User");
+		}
 	@SuppressWarnings("resource")
 	Scanner read = new Scanner(System.in);
 	
@@ -154,7 +159,15 @@ public class UserLogin {
 				System.out.println(items.get(i).toString() + " yes or no");
 				String itemList = read.nextLine();
 				if(itemList.equalsIgnoreCase("yes")) {
+					print("Would you like to rate it? ");
+					String rate = read.nextLine();
+					if(rate.equalsIgnoreCase("yes")) {
+						print("What is your rating?");
+						double rating = read.nextDouble();
+						curr.rateMedia(items.get(i), rating);
+					}
 					curr.returnMedia(items.get(i));
+					
 				}
 			}
 			print("You have no items to return");
@@ -162,6 +175,23 @@ public class UserLogin {
 			break;
 		case "d" :
 			print("\nBye");
+			UserInterface.start();
+			break;
+		case "e":
+			print("Enter the item title");
+			String title = read.nextLine();
+			print("what type of media is it");
+			String media = read.nextLine();
+			m.addCopy(media, title);
+			loggedIn(curr.getUserName());
+			break;
+		case "f":
+			print("Enter the item title");
+			String rtitle = read.nextLine();
+			print("what type of media is it");
+			String rmedia = read.nextLine();
+			m.removeCopy(rmedia, rtitle);
+			loggedIn(curr.getUserName());
 			break;
 		default : 
 			print("Invalid action");

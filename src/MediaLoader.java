@@ -32,8 +32,8 @@ public class MediaLoader {
 				String genre = (String)m.get("genre");
 				int numCopies = Integer.parseInt(m.get("numCopies").toString());
 				int numAvailable = Integer.parseInt(m.get("numAvailable").toString());
-				//String[] ratingUsers = (String[])m.get("ratingUsers");
-				//double[] ratings = (double[])m.get("ratings");
+				//JSONArray[] ratingUsers = (JSONArray[]) m.get("ratingUsers");
+				//JSONArray[] ratings  =  (JSONArray[]) m.get("ratings");
 				//String[] waitlist = (String[])m.get("waitlist");
 				
 				MediaLibrary ml = MediaLibrary.getInstance();
@@ -50,12 +50,12 @@ public class MediaLoader {
 					b.setNumAvailable(numAvailable);
 					/*
 					for(int j = 0; j < ratingUsers.length; j++) {
-						b.rateMedia(ratingUsers[j], ratings[j]);
+						b.rateMedia(ratingUsers[j].toString(), Double.valueOf(ratings[j].toString()));
 					}
-					for(int j = 0; j < waitlist.length; j++) {
+					/*for(int j = 0; j < waitlist.length; j++) {
 						b.addToWaitList(waitlist[j]);
-					}
-					*/
+					}*/
+					
 					b.rateMedia("Bob", 5.0);
 					ml.addNewMedia(b);
 					break;
@@ -70,5 +70,14 @@ public class MediaLoader {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+		
+	}
+	public static double[] ratings(JSONArray j) {
+		double [] ratings = new double[j.size()];
+		for(int i =0; i < j.size(); ++i) {
+			ratings[i] = Double.parseDouble(j.toString());
+			
+		}
+		return ratings;
 	}
 }

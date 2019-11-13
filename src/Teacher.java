@@ -9,7 +9,16 @@ public class Teacher extends User {
 	}
 	private static final int MAX_CHECKOUT = 50;
 	private static int checkouts;
+	private String type;
 
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType() {
+		this.type = "T";
+	}
 
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub

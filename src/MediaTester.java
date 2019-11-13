@@ -5,7 +5,7 @@ public class MediaTester {
     MediaLibrary ml = MediaLibrary.getInstance();
     MediaLoader.loadMedia();
     ml.printMedia();
-    /*
+    
     if(ml.addCopy("Book", "Book One"))
     	System.out.println("Found other copies of that item. Total number of copies updated.");
     else {
@@ -39,7 +39,7 @@ public class MediaTester {
     for (int i = 0; i < searchResults.size(); i++) {
       System.out.println(i+1 + ") " + searchResults.get(i).toString());
     }
-    */
+    
   }
   
   
