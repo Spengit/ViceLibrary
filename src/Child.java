@@ -1,5 +1,5 @@
 
-public class Child extends User implements UserPermissions{
+public class Child extends User {
 
 	public Child(String name, String lastName, String address, 
 			String email, String phoneNumber, double fines) {
@@ -8,7 +8,7 @@ public class Child extends User implements UserPermissions{
 	}
 	private static final int MAX_CHECKOUT = 3;
 
-	@Override
+
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub
 		return MAX_CHECKOUT;
@@ -23,7 +23,7 @@ public class Child extends User implements UserPermissions{
 
 
 	@Override
-	public void rateMedia(Media m) {
+	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub
 		
 	}
