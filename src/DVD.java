@@ -1,7 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DVD extends Media
@@ -33,7 +32,7 @@ public class DVD extends Media
 	  public DVD(String type, String title, String pubYear, double price, String condition,
       boolean isNewRelease, String director, String contains, String actors, String studio, String genre)
 	  {
-		  super(type, title, pubYear, price, condition, isNewRelease);
+		  super(type, title, pubYear, price, condition, isNewRelease, genre);
 		  this.director=director;
 		  this.contains=contains;
 		  this.actors=actors;
@@ -148,3 +147,4 @@ public class DVD extends Media
 			return this.genre;
 		}
 }
+

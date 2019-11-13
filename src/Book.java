@@ -1,7 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 public class Book extends Media
 {
@@ -30,9 +29,9 @@ public class Book extends Media
 	  private String genre; //exclusive to Book and DVD
 
 	  public Book(String type, String title, String pubYear, double price, String condition,
-      boolean isNewRelease, String author, String isbn, String publisher)
+      boolean isNewRelease, String genre,String author, String isbn, String publisher)
 	  {
-		  super(type, title, pubYear, price, condition, isNewRelease);
+		  super(type, title, pubYear, price, condition, isNewRelease, genre);
 		  this.author=author;
 		  this.isbn=isbn;
 		  this.publisher=publisher;
