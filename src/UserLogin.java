@@ -31,13 +31,20 @@ public class UserLogin {
 					 String email = scan.nextLine();
 					 print("Phone Number: ");
 					 String phone = scan.nextLine();
-					 //print("Are You a teacher? Yes or no");
+					 print("Are You a teacher? Yes or no");
+					 String teach = scan.nextLine();
+					 if(teach.equalsIgnoreCase("yes")) {
+						 Teacher t = new Teacher(name, 
+								 lastName, adr, email, phone, 0);
+					 }
+					 else {
 					 PersonalUser pu = new PersonalUser(
 							 name, lastName,adr,email,phone,0);
 					 print("Welcome to the library "+ 
 							 pu.getFirstName()+ "!");
 					 done = true;
-					
+					 }
+					 
 					
 					}
 					break;
