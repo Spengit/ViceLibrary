@@ -10,6 +10,7 @@ public class UserLogin {
 	MediaLibrary m = MediaLibrary.getInstance();
 	public static User curr;
 	public void login(int a) {
+		UserLoader.loadUsers();
 		switch(a) {
 			case 1:	a = 1;
 					print("Enter Username:");
@@ -94,7 +95,6 @@ public class UserLogin {
 		System.out.println(s);
 	}
 	public void loggedIn(String user) {
-		UserLoader.loadUsers();
 		print("Would you like to \na: Search/Checkout"
 				+ "\nb: pay a fine"
 				+ "\nc: return an item"
