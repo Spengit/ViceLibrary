@@ -24,15 +24,6 @@ public class PersonalUser extends User {
 		return super.toString() + "\n Account Type: Personal";
 	}
 
-	@Override
-	public void checkout(Media m) {
-		// TODO Auto-generated method stub
-		m.checkoutMedia();
-		checkoutCount = getCheckouts() + 1;
-	
-	
-	}
-
 
 	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub

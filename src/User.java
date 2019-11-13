@@ -66,7 +66,7 @@ protected boolean isFlagged;
 		this.phoneNumber = phoneNumber;
 		this.setFines(fines);
 		this.isFlagged = false;
-		
+		items = new ArrayList<Media>();
 	}
 	public int getId() {
 		return this.id;

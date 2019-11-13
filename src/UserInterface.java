@@ -1,11 +1,13 @@
 /*
  * Davis Edwards
- * 2019.10.30
+ * 2019.11.13
  */
 import java.util.Scanner;
 public class UserInterface {
 	public static void main(String[] args) {
 		start();
+		UserLoader.loadUsers();
+		//User Senario1 = Users.findUser(userName)
 	}
 	public static void print(String s) {
 		System.out.println(s);

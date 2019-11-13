@@ -1,7 +1,7 @@
 
 /* 
  * Davis Edwards
- * 2019.10.30
+ * 2019.11.13
  */
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -94,6 +94,7 @@ public class UserLogin {
 		System.out.println(s);
 	}
 	public void loggedIn(String user) {
+		UserLoader.loadUsers();
 		print("Would you like to \na: Search/Checkout"
 				+ "\nb: pay a fine"
 				+ "\nc: return an item"
@@ -139,12 +140,32 @@ public class UserLogin {
 			loggedIn(curr.getUserName());
 			break;
 		case "c":
+			ArrayList<Media> items = curr.getItems();
+			if(items== null) {
+				print("You have no items to return\n");
+				loggedIn(curr.getUserName());
+			}
+			for(int i =0; i < items.size(); ++i) {
+				System.out.println(items.get(i).getTitle());
+			}
+			print("What would you like to return?");
+			for(int i = 0; i < items.size(); ++i) {
+				print("Are you returning ");
+				System.out.println(items.get(i).toString() + " yes or no");
+				String itemList = read.nextLine();
+				if(itemList.equalsIgnoreCase("yes")) {
+					curr.returnMedia(items.get(i));
+				}
+			}
+			print("You have no items to return");
+			loggedIn(curr.getUserName());
 			break;
 		case "d" :
+			print("\nBye");
 			break;
-			default : 
-				print("Invalid action");
-				break;
+		default : 
+			print("Invalid action");
+			break;
 		}
 	}
 	

@@ -4,7 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 public class UserLoader {
-	private static final String People = "file.json";
+	private static final String People = "src/Users.json";
 	
 	public static void loadUsers() {
 		try {
