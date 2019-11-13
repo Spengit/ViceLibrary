@@ -1,5 +1,5 @@
 
-public class Teacher extends User implements UserPermissions{
+public class Teacher extends User {
 
 	public Teacher(String name, String lastName,
 			String address, String email, String phoneNumber, double fines) {
@@ -10,7 +10,7 @@ public class Teacher extends User implements UserPermissions{
 	private static final int MAX_CHECKOUT = 50;
 	private static int checkouts;
 
-	@Override
+
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub
 		return MAX_CHECKOUT;
@@ -21,8 +21,9 @@ public class Teacher extends User implements UserPermissions{
 	}
 
 	@Override
-	public void checkout() {
+	public void checkout(Media m) {
 		// TODO Auto-generated method stub
+		m.checkoutMedia();
 		checkouts+=1;
 	}
 
@@ -30,8 +31,8 @@ public class Teacher extends User implements UserPermissions{
 		return checkouts;
 	}
 
-	@Override
-	public void rateMedia(Media m) {
+	
+	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub
 		
 	}

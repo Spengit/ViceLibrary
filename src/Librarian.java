@@ -19,15 +19,16 @@ public class Librarian extends User implements AdminPermissions{
 	}
 
 	@Override
-	public void addFine(User u) {
+	public void addFine(User u, double fine) {
 		// TODO Auto-generated method stub
-		
+		u.setFines(u.getFines() + fine);
 	}
 
 	@Override
 	public void checkoutMedia(Media m) {
 		// TODO Auto-generated method stub
-		
+		m.checkoutMedia();
+		this.getItems().add(m);
 	}
 
 	@Override
@@ -39,19 +40,21 @@ public class Librarian extends User implements AdminPermissions{
 	@Override
 	public void addMedia(Media m) {
 		// TODO Auto-generated method stub
-		
+		MediaLibrary.getInstance().addNewMedia(m);
 	}
 
 	@Override
 	public void removeMedia(Media m) {
 		// TODO Auto-generated method stub
-		
+		MediaLibrary.getInstance().removeCopy
+		(m.getType(), m.getTitle());
 	}
 
 	@Override
-	public void checkout() {
+	public void checkout(Media m) {
 		// TODO Auto-generated method stub
-		
+		m.checkoutMedia();
+		this.getItems().add(m);
 	}
 	
 	public double payFine (double fine) {

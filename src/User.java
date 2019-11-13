@@ -1,12 +1,34 @@
 import java.util.ArrayList;
-
-import javax.print.attribute.standard.Media;
 public abstract class User implements UserActions {
 	// Account Information Requirement
 private int id;
 private String Firstname;
 private String lastName;
 private double fines;
+private String userName;
+private String password;
+private ArrayList<Media> items;
+public ArrayList<Media> getItems() {
+	return items;
+}
+public String getFirstname() {
+	return Firstname;
+}
+public void setFirstname(String firstname) {
+	Firstname = firstname;
+}
+public String getUserName() {
+	return userName;
+}
+public void setUserName(String userName) {
+	this.userName = userName;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
+}
 public String getFirstName() {
 	return Firstname;
 }
@@ -54,11 +76,14 @@ protected boolean isFlagged;
 	}
 	public void checkout(Media m) {
 		// TODO Auto-generated method stub
+		m.checkoutMedia();
+		items.add(m);
 	}
 	@Override
-	public void returnMedia() {
+	public void returnMedia(Media m) {
 		// TODO Auto-generated method stub
-		
+		m.checkinMedia();
+		items.remove(m);
 	}
 	public double payFine(double fine) {
 		// TODO Auto-generated method stub
@@ -94,8 +119,8 @@ protected boolean isFlagged;
 	public void setFines(double fines) {
 		this.fines = fines;
 	}
-	public void rateMedia(Media m) {
+	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub
-		
+		m.rateMedia(this.getUserName(), rating);
 	}
 }

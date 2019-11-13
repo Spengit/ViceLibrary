@@ -1,7 +1,3 @@
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap; 
-import java.util.Map;
 
 public class DVD extends Media
 {
@@ -11,10 +7,41 @@ public class DVD extends Media
 	 * Edited by Jay-Rads Villanueva
 	 * Ver 1.0, based on Media ver 1.4
 	 */
-	 private String type;
 	  //Exclusive to DVD
 	  private String director;
-	  private String contains;
+	  public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	public String getContains() {
+		return contains;
+	}
+
+	public void setContains(String contains) {
+		this.contains = contains;
+	}
+
+	public String getActors() {
+		return actors;
+	}
+
+	public void setActors(String actors) {
+		this.actors = actors;
+	}
+
+	public String getStudio() {
+		return studio;
+	}
+
+	public void setStudio(String studio) {
+		this.studio = studio;
+	}
+
+	private String contains;
 	  private String actors;
 	  private String studio;
 	  

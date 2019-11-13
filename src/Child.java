@@ -16,13 +16,14 @@ public class Child extends User {
 
 
 	@Override
-	public void checkout() {
+	public void checkout(Media m) {
 		// TODO Auto-generated method stub
-		
+		m.checkoutMedia();
+		this.getItems().add(m);
 	}
 
 
-	@Override
+
 	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub
 		

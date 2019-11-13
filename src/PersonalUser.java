@@ -1,5 +1,5 @@
 
-public class PersonalUser extends User implements UserPermissions{
+public class PersonalUser extends User {
 
 	public PersonalUser(String name, String lastName, 
 			String address, String email, String phoneNumber, double fines) {
@@ -11,7 +11,7 @@ public class PersonalUser extends User implements UserPermissions{
 
 
 
-	@Override
+
 	public int checkoutLimit() {
 		// TODO Auto-generated method stub
 		if(this.isFlagged == true) {
@@ -24,19 +24,19 @@ public class PersonalUser extends User implements UserPermissions{
 		return super.toString() + "\n Account Type: Personal";
 	}
 
-	
+	@Override
 	public void checkout(Media m) {
 		// TODO Auto-generated method stub
-		
+		m.checkoutMedia();
 		checkoutCount = getCheckouts() + 1;
 	
 	
 	}
 
-	@Override
-	public void rateMedia(Media m) {
+
+	public void rateMedia(Media m, double rating) {
 		// TODO Auto-generated method stub
-		
+		m.rateMedia(this.getUserName(), rating);
 	}
 
 
@@ -45,11 +45,7 @@ public class PersonalUser extends User implements UserPermissions{
 		return checkoutCount;
 	}
 
-	@Override
-	public void checkout() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public double payFine(double fine) {
 		return super.payFine(fine);
 	}

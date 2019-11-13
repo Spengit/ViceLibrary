@@ -1,7 +1,4 @@
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class Magazine extends Media
 {
@@ -13,10 +10,34 @@ public class Magazine extends Media
 	 * Ver 1.0
 	 * Based on Media 1.4
 	 */
-	private String type;
+
 	  //Exclusive to Magazine
 	  private String schedule;
-	  private int volume;
+	  public String getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(String schedule) {
+		this.schedule = schedule;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public int getIssue() {
+		return issue;
+	}
+
+	public void setIssue(int issue) {
+		this.issue = issue;
+	}
+
+	private int volume;
 	  private int issue;
 	  
 	  public Magazine(String type, String title, String pubYear, double price, String condition,
