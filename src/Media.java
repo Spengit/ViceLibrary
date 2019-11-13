@@ -71,6 +71,12 @@ public abstract class Media {
 	public int getNumAvailable() {
 	  return this.numAvailable;
 	}
+	public void setNumCopies(int n) {
+		this.numCopies = n;
+	}
+	public void setNumAvailable(int n) {
+	  	this.numAvailable = n;
+	}
 	public boolean checkoutMedia() {
 	  if (this.numAvailable == 0)
 	    return false;

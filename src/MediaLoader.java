@@ -11,7 +11,7 @@ import org.json.simple.parser.JSONParser;
  * @version 1.0
  */
 public class MediaLoader {
-	private static final String MEDIA_FILE = "mediaFile.json";
+	private static final String MEDIA_FILE = "src/mediaFile.json";
 	
 	public static void loadMedia() {
 		try {
@@ -22,7 +22,7 @@ public class MediaLoader {
 			
 			for(int i=0; i < mediaJSON.size(); i++) {
 				JSONObject m = (JSONObject)mediaJSON.get(i);
-				String id = (String)m.get("id");
+				long id = (long)m.get("id");
 				String type = (String)m.get("type");
 				String title = (String)m.get("title");
 				String pubYear = (String)m.get("pubYear");
@@ -30,11 +30,11 @@ public class MediaLoader {
 				String condition = (String)m.get("condition");
 				boolean isNewRelease = (boolean)m.get("isNewRelease");
 				String genre = (String)m.get("genre");
-				int numCopies = (int)m.get("numCopies");
-				int numAvailable = (int)m.get("numAvailable");
-				String[] ratingUsers = (String[])m.get("ratingUsers");
-				double[] ratings = (double[])m.get("ratings");
-				String[] waitlist = (String[])m.get("waitlist");
+				int numCopies = Integer.parseInt(m.get("numCopies").toString());
+				int numAvailable = Integer.parseInt(m.get("numAvailable").toString());
+				//String[] ratingUsers = (String[])m.get("ratingUsers");
+				//double[] ratings = (double[])m.get("ratings");
+				//String[] waitlist = (String[])m.get("waitlist");
 				
 				MediaLibrary ml = MediaLibrary.getInstance();
 				
@@ -45,7 +45,18 @@ public class MediaLoader {
 					String publisher = (String)m.get("publisher");
 					Book b = new Book(type, title, pubYear, price, condition, isNewRelease, 
 							genre, author, isbn, publisher);
-					
+					b.setId(id);
+					b.setNumCopies(numCopies);
+					b.setNumAvailable(numAvailable);
+					/*
+					for(int j = 0; j < ratingUsers.length; j++) {
+						b.rateMedia(ratingUsers[j], ratings[j]);
+					}
+					for(int j = 0; j < waitlist.length; j++) {
+						b.addToWaitList(waitlist[j]);
+					}
+					*/
+					b.rateMedia("Bob", 5.0);
 					ml.addNewMedia(b);
 					break;
 				case "dvd" :
