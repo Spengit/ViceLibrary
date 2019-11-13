@@ -4,21 +4,30 @@
  * 2019.10.30
  */
 import java.util.Scanner;
+import java.util.ArrayList;
 public class UserLogin {
 	Scanner scan = new Scanner(System.in);
 	MediaLibrary m = MediaLibrary.getInstance();
+	public static User curr;
 	public void login(int a) {
 		switch(a) {
 			case 1:	a = 1;
-					print("Username:");
+					print("Enter Username:");
 					String name = scan.next();
-					print("Password:");
-					String pass = scan.next();
-					//consider hashing the password
-					//login(name, pass);
+					
+					if(Users.findUser(name)!= null) {
+					 curr = Users.findUser(name);
+						print("Enter Password:");
+						String pass = scan.next();
+						if(curr.getPassword().equals(pass)) {
+							print("Welcome back  " + curr.getFirstname());
+							loggedIn(curr.getUserName());
+						}
+					}
+					
+					
 					break;
 			case 2:	a = 2;
-					print("That feature is coming");
 					boolean done = false;
 					while(done != true) {
 						print("First Name:");
@@ -36,20 +45,42 @@ public class UserLogin {
 					 if(teach.equalsIgnoreCase("yes")) {
 						 Teacher t = new Teacher(name, 
 								 lastName, adr, email, phone, 0);
+						 print("Welcome to the library " +
+								 t.getFirstname());
+						 print("Please set a userName and password:");
+						 print("Username:");
+						 name = scan.nextLine();
+						 t.setUserName(name);
+						 print("Password: ");
+						 String pass = scan.nextLine();
+						 t.setPassword(pass);
+						 print("Switching to log in screen");
+						 Users.addUser(t);
+						 done = true;
+					
 					 }
 					 else {
 					 PersonalUser pu = new PersonalUser(
 							 name, lastName,adr,email,phone,0);
 					 print("Welcome to the library "+ 
 							 pu.getFirstName()+ "!");
+					 print("Please set a userName and password:");
+					 print("Username:");
+					 name = scan.nextLine();
+					 pu.setUserName(name);
+					 print("Password: ");
+					 String pass = scan.nextLine();
+					 pu.setPassword(pass);
+					 print("Switching to log in screen");
+					 Users.addUser(pu);
 					 done = true;
-					 }
 					 
+					 }
+					 login(1);
 					
 					}
 					break;
 			case 3:	a = 3;
-					//print("That feature is coming");
 					print("Enter the title: ");
 					String nme = scan.nextLine();
 					System.out.println(m.searchMedia(nme));
@@ -62,4 +93,60 @@ public class UserLogin {
 	public static void print(String s) {
 		System.out.println(s);
 	}
+	public void loggedIn(String user) {
+		print("Would you like to \na: Search/Checkout"
+				+ "\nb: pay a fine"
+				+ "\nc: return an item"
+				+ "\nd: Log Out");
+	@SuppressWarnings("resource")
+	Scanner read = new Scanner(System.in);
+	
+		String logg = read.nextLine();
+		switch(logg) {
+		case "a" :
+			print("What would you like to checkout?");
+			String check = read.nextLine();
+			MediaLoader.loadMedia();
+			ArrayList<Media> mediaSearch = m.searchMedia(check);
+			print("What would you like to check out? ");
+			for(int i = 0; i < mediaSearch.size(); ++i) {
+				System.out.println( (i+1) + " "+ mediaSearch.get(i).toString());
+			}
+			
+			Scanner checkChoice = new Scanner(System.in);
+			int choice = checkChoice.nextInt();
+				if(curr.getFines() != 0) {
+					System.out.println("Sorry you have a fine balance of " + curr.getFines());
+					print("Pay the fines? : ");
+					String fines = read.nextLine();
+					if(fines.equalsIgnoreCase("yes")) {
+						curr.payFine(curr.getFines());
+						curr.checkout(mediaSearch.get(choice));
+						System.out.println("You have checked out " + 
+						mediaSearch.get(choice).toString());
+					}
+				}
+			curr.checkout(mediaSearch.get(choice-1));
+			System.out.println("You have checked out " + 
+					mediaSearch.get(choice-1).toString());
+			loggedIn(curr.getUserName());
+			
+			break;
+		case "b" :
+			System.out.println("Your fine balance is " + curr.getFines());
+			curr.payFine(curr.getFines());
+			print("Your balance is now paid\n");
+			loggedIn(curr.getUserName());
+			break;
+		case "c":
+			break;
+		case "d" :
+			break;
+			default : 
+				print("Invalid action");
+				break;
+		}
+	}
+	
 }
+
