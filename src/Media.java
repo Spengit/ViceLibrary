@@ -136,7 +136,7 @@ public abstract class Media {
 	}
 	public String toString() {
 		String s = "";
-		s += this.getTitle() + " (" + this.getType() + "):" + this.getNumAvailable() +
+		s += this.getTitle() + " (" + this.getType() + "): " + this.getNumAvailable() +
 		    " copies available  Rating: " + this.getRating();
 		return s;
 	}
