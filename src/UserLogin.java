@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class UserLogin {
 	Scanner scan = new Scanner(System.in);
 	MediaLibrary m = MediaLibrary.getInstance();
-	public static User curr;
+	public  User curr;
 	public void login(int a) {
 		UserLoader.loadUsers();
 		MediaLoader.loadMedia();
@@ -95,6 +95,7 @@ public class UserLogin {
 	public static void print(String s) {
 		System.out.println(s);
 	}
+	//check the waitlist to see if they are on one 
 	public void loggedIn(String user) {
 		print("Would you like to \na: Search/Checkout"
 				+ "\nb: pay a fine"
@@ -121,6 +122,17 @@ public class UserLogin {
 			
 			Scanner checkChoice = new Scanner(System.in);
 			int choice = checkChoice.nextInt();
+			if(mediaSearch.get(choice-1).checkoutMedia() == false) {
+				print("No copy available, Would you like to be added to the wailt list?");
+				//media method returns an arraylist of media checkWaitList
+				String waitList = checkChoice.nextLine();
+				//test case for correct input
+				if(waitList.equalsIgnoreCase("yes")) {
+					mediaSearch.get(choice).addToWaitList(curr.getUserName());
+				} else {
+					loggedIn(curr.getUserName());
+				}
+			}
 				if(curr.getFines() != 0) {
 					System.out.println("Sorry you have a fine balance of " + curr.getFines());
 					print("Pay the fines? : ");
