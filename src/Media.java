@@ -104,6 +104,16 @@ public abstract class Media {
 	  this.waitList.add(username);
 	  return true;
 	}
+	public boolean checkWaitList(String username) {
+		for (String s : this.waitList) {
+			if (s.equals(username))
+				return true;
+		}
+		return false;
+	}
+	public boolean isAvailable() {
+		return (this.numAvailable > 0);
+	}
 	/**
 	 * Adds (or adjusts) a rating for this title. Keeps only the most recent
 	 * rating per user who rates it.
