@@ -5,10 +5,6 @@
 import java.util.Scanner;
 public class UserInterface {
 	public static void main(String[] args) {
-		UserLoader.loadUsers();
-		 User test = Users.getUser(1);
-		 test.setUserName("Test");
-		 test.setPassword("Test");
 		 start();
 	}
 	public static void print(String s) {
