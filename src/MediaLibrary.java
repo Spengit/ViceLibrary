@@ -88,4 +88,14 @@ public class MediaLibrary {
 	  }
 	  return results;
 	}
+	
+	public ArrayList<Media> checkWaitListAvail(String username) {
+		ArrayList<Media> ret = new ArrayList<Media>();
+		for (Media m : mediaLibrary) {
+			if (m.checkWaitList(username) && m.isAvailable()) {
+				ret.add(m);
+			}
+		}
+		return ret;
+	}
 }
