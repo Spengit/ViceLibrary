@@ -32,6 +32,7 @@ public class UserLoader {
 							phoneNumber, address,email, Double.valueOf(fines));
 					u.setUserName(username);
 					u.setPassword(password);
+					u.setType(type);
 					Users.addUser(u);
 					
 					break;
@@ -40,6 +41,7 @@ public class UserLoader {
 							phoneNumber, address,email, Double.valueOf(fines));
 					u.setUserName(username);
 					u.setPassword(password);
+					u.setType(type);
 					Users.addUser(u);
 					break;
 				case "T" :
@@ -47,6 +49,7 @@ public class UserLoader {
 							phoneNumber, address,email, Double.valueOf(fines));
 					u.setUserName(username);
 					u.setPassword(password);
+					u.setType(type);
 					Users.addUser(u);
 				}
 		        
