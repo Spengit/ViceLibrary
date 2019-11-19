@@ -39,7 +39,7 @@ public static void removeUser(int index) {
 
 public static  User findUser(String userName) {
 	for(int i = 0; i < users.size(); ++i) {
-		if(users.get(i).getUserName() .equals(userName)) {
+		if(users.get(i).getUserName().equals(userName)) {
 			return users.get(i);
 		}
 	}

@@ -22,19 +22,32 @@ public class UserLoader {
 				String address = (String)personJSON.get("address");
 				String type = (String)personJSON.get("type");
 				String fines = (String) personJSON.get("fines").toString();
+				String username = (String) personJSON.get("username");
+				String password = (String) personJSON.get("password");
+				User u;
 				
 				switch(type) {
 				case  "P" :
-					Users.addUser(new PersonalUser(firstName, lastName, 
-							phoneNumber, address,email, Double.valueOf(fines)));
+					u = new PersonalUser(firstName, lastName, 
+							phoneNumber, address,email, Double.valueOf(fines));
+					u.setUserName(username);
+					u.setPassword(password);
+					Users.addUser(u);
+					
 					break;
 				case "L" :
-					Users.addUser(new Librarian(firstName, lastName, 
-							phoneNumber, address,email, Double.valueOf(fines)));
+					u = new Librarian(firstName, lastName, 
+							phoneNumber, address,email, Double.valueOf(fines));
+					u.setUserName(username);
+					u.setPassword(password);
+					Users.addUser(u);
 					break;
 				case "T" :
-					Users.addUser(new Teacher(firstName, lastName, 
-							phoneNumber, address,email, Double.valueOf(fines)));
+					u = new Teacher(firstName, lastName, 
+							phoneNumber, address,email, Double.valueOf(fines));
+					u.setUserName(username);
+					u.setPassword(password);
+					Users.addUser(u);
 				}
 		        
 				}
