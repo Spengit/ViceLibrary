@@ -64,14 +64,14 @@ public class MediaLibrary {
 	 * @param type Book, magazine, etc.
 	 * @param title Title of the media to be removed
 	 * @return true if successful, false if the media type and
-	 * 			title does not match any items in the library.
+	 * 			title does not match any items in the library
+	 *          or if number of copies is already 0.
 	 */
 	public boolean removeCopy(String type, String title) {
 
 		for (Media m : mediaLibrary) {
 			if (m.getTitle().equals(title) && m.getType().equals(type)) {
-				m.checkoutMedia();
-				return true;
+				return m.removeCopy();
 			}
 		}
 		return false;
@@ -97,5 +97,13 @@ public class MediaLibrary {
 			}
 		}
 		return ret;
+	}
+	
+	public void clearLibrary() {
+	  ml = new MediaLibrary();
+	}
+	
+	public boolean isEmpty() {
+	  return mediaLibrary.isEmpty();
 	}
 }

@@ -16,7 +16,6 @@ public class MediaLoader {
 	public static void loadMedia() {
 		try {
 			FileReader f = new FileReader(MEDIA_FILE);
-			JSONParser parse = new JSONParser();
 			JSONObject jsonData = (JSONObject)new JSONParser().parse(f);
 			JSONArray mediaJSON = (JSONArray)jsonData.get("media");
 			MediaLibrary ml = MediaLibrary.getInstance();

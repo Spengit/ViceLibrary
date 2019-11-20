@@ -88,6 +88,12 @@ public abstract class Media {
 	public void addCopy() {
 		this.numCopies += 1;
 	}
+	public boolean removeCopy() {
+	  if (this.numCopies == 0)
+	    return false;
+	  this.numCopies -= 1;
+	  return true;
+	}
 	public void setNewRelease(boolean isNewRelease) {
 	  this.isNewRelease = isNewRelease;
 	}
